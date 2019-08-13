@@ -1,0 +1,78 @@
+/**
+ * Typography
+ */
+.large-title {
+  font-size: 32px;
+  line-height: 1.08365;
+  font-weight: 600;
+  letter-spacing: -0.003em;
+}
+
+.title1 {
+  font-size: 28px;
+  line-height: 1.125;
+  font-weight: 600;
+  letter-spacing: 0.004em;
+}
+
+.title2 {
+  font-size: 22px;
+  line-height: 1.59091;
+  letter-spacing: 0em;
+  font-weight: 600;
+}
+
+.title3 {
+  font-size: 20px;
+  line-height: 1.19048;
+  font-weight: 600;
+  letter-spacing: 0.011em;
+}
+
+.headline {
+  font-size: 18px;
+  line-height: 1.47059;
+  font-weight: 500;
+  letter-spacing: -0.022em;
+}
+
+.body {
+  font-size: 16px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+}
+
+.callout {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+}
+
+.subhead {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.00714em;
+}
+
+.footnote {
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.015em;
+}
+
+.caption1 {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0em;
+  color: #888;
+}
+
+.caption2 {
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.015em;
+  color: #888;
+}

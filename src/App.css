@@ -1,0 +1,76 @@
+/** Reset user agent style */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+:root {
+  --black: #000000;
+
+  /** Background colors **/
+  --background-white: #ffffff;
+  --background-light-gray: #fafafa;
+  --background-gray: #e1e1e1;
+
+  /** Foreground Colors **/
+  --color: rgba(0, 0, 0, 0.8);
+  --color-dark: rgba(0, 0, 0, 0.84);
+  --color-light: rgba(0, 0, 0, 0.54);
+  /* --selection: #79ffe1; */
+  --link-color: #0070f3;
+  --success-light: #3291ff;
+  --success: #0070f3;
+  --success-dark: #0366d6;
+  --error-light: #ff1a1a;
+  --error: #ee0000;
+  --error-dark: #cc0000;
+  --warning-light: #f7b955;
+  --warning: #f5a623;
+  --warning-dark: #f49b0b;
+  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
+  --portal-opacity: 0.25;
+
+  /** TODO: Use following colors for different variations **/
+
+  /* 
+  --accents-1: #fafafa;
+  --accents-2: #eaeaea;
+  --accents-3: #999999;
+  --accents-4: #888888;
+  --accents-5: #666666;
+  --accents-6: #444444;
+  --accents-7: #333333;
+  --accents-8: #111111;
+  */
+}
+
+/**
+ * TODO: Use rem and responsive font sizes
+ */
+body {
+  background: var(--background-white);
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: var(--color);
+
+  /* font-size: 16px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em; */
+}
+
+.sidebar {
+  background: var(--background-light-gray);
+  box-shadow: var(--shadow-small);
+  width: 30%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
