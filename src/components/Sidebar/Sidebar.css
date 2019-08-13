@@ -1,0 +1,26 @@
+.sidebar {
+  background: var(--background-light-gray);
+  box-shadow: var(--shadow-small);
+  width: 20%;
+  min-width: 240px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: var(--spacing-unit) 4px;
+}
+
+.title {
+  padding: var(--spacing-unit);
+  /* text-align: center; */
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid var(--background-gray);
+  padding: 4px;
+  margin-bottom: 20px;
+  /* display: flex;
+  align-items: center; */
+}

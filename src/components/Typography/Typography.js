@@ -1,74 +1,79 @@
-import React from "react";
+import React from 'react';
 
-import "./Typography.css";
+import './Typography.css';
 
-const Typography = ({ variant = "body1", children, ...other }) => {
-  let Element = "p";
-  let className = "body1";
+const Typography = ({
+  variant = 'body1',
+  children,
+  className = '',
+  ...other
+}) => {
+  let Element = 'p';
+  let classname = 'body1';
 
   switch (variant.toLowerCase()) {
-    case "largetitle":
-      Element = "h1";
-      className = "large-title";
+    case 'largetitle':
+      Element = 'h1';
+      classname = `large-title ${className}`;
       break;
 
-    case "title1":
-      Element = "h2";
-      className = "title1";
+    case 'title1':
+      Element = 'h2';
+      classname = `title1 ${className}`;
       break;
 
-    case "title2":
-      Element = "h3";
-      className = "title2";
+    case 'title2':
+      Element = 'h3';
+      classname = `title2 ${className}`;
       break;
 
-    case "title3":
-      Element = "h4";
-      className = "title2";
+    case 'title3':
+      Element = 'h4';
+      classname = `title2 ${className}`;
       break;
 
-    case "headline":
-      Element = "h5";
-      className = "headline";
+    case 'headline':
+      Element = 'h5';
+      classname = `headline ${className}`;
       break;
 
-    case "body":
-      Element = "p";
-      className = "body";
+    case 'body':
+      Element = 'p';
+      classname = `body ${className}`;
       break;
 
-    case "callout":
-      Element = "p";
-      className = "callout";
+    case 'callout':
+      Element = 'p';
+      classname = `callout ${className}`;
       break;
 
-    case "Subhead":
-      Element = "h6";
-      className = "Subhead";
+    case 'subhead':
+      Element = 'h6';
+      classname = `subhead ${className}`;
       break;
 
-    case "footnote":
-      Element = "span";
-      className = "footnote";
+    case 'footnote':
+      Element = 'span';
+      classname = `footnote ${className}`;
       break;
 
-    case "caption1":
-      Element = "span";
-      className = "caption1";
+    case 'caption1':
+      Element = 'span';
+      classname = `caption1 ${className}`;
       break;
 
-    case "caption2":
-      Element = "span";
-      className = "caption2";
+    case 'caption2':
+      Element = 'span';
+      classname = `caption2 ${className}`;
       break;
 
     default:
-      Element = "p";
-      className = "body";
+      Element = 'p';
+      classname = `body ${className}`;
   }
 
   return (
-    <Element className={className} {...other}>
+    <Element className={classname} {...other}>
       {children}
     </Element>
   );

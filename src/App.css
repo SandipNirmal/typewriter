@@ -33,6 +33,10 @@
   --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
   --portal-opacity: 0.25;
 
+  /** Spacing Unit **/
+  --spacing-unit: 8px;
+  --spacing-unit-2x: 16px;
+
   /** TODO: Use following colors for different variations **/
 
   /* 
@@ -52,7 +56,7 @@
  */
 body {
   background: var(--background-white);
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue',
     'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -65,12 +69,21 @@ body {
   letter-spacing: -0.022em; */
 }
 
-.sidebar {
-  background: var(--background-light-gray);
-  box-shadow: var(--shadow-small);
-  width: 30%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
+.light {
+  font-weight: 300;
+}
+
+.semi-bold {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+button {
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--success-light);
+  background: var(--background-white);
 }
