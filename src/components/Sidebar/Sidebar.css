@@ -1,13 +1,14 @@
 .sidebar {
   background: var(--background-light-gray);
   box-shadow: var(--shadow-small);
-  width: 20%;
-  min-width: 240px;
+  /* width: 20%;
+  min-width: 240px; */
+  width: 240px;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  padding: var(--spacing-unit) 4px;
+  /* padding: var(--spacing-unit) 4px; */
 }
 
 .title {
