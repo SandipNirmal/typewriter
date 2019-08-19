@@ -1,8 +1,7 @@
 .sidebar {
   background: var(--background-light-gray);
   box-shadow: var(--shadow-small);
-  /* width: 20%;
-  min-width: 240px; */
+  /* width: 20%;*/
   width: 240px;
   height: 100vh;
   position: fixed;
@@ -19,9 +18,13 @@
 .sidebar-footer {
   position: absolute;
   bottom: 0;
-  border-top: 1px solid var(--background-gray);
-  padding: 4px;
-  margin-bottom: 20px;
-  /* display: flex;
-  align-items: center; */
+  width: 100%;
+  border-top: 1px solid #e1e1e1;
+}
+
+.sidebar-footer .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
 }

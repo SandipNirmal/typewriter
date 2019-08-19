@@ -31,7 +31,11 @@ export function Sidebar() {
       <List notes={notes} />
 
       <div className="sidebar-footer">
-        <Typography variant="footnote">Total Notes: {notes.length}</Typography>
+        <div className="sidebar-footer content">
+          <Typography variant="footnote">
+            Total Notes: {notes.length}
+          </Typography>
+        </div>
       </div>
     </div>
   );
