@@ -5,22 +5,22 @@ import Typography from '../Typography/Typography';
 
 import './Sidebar.css';
 
-const notes = [
-  {
-    id: 1,
-    title: 'ABC',
-    content: 'Some Random Content',
-    updatedAt: '08/11/2019'
-  },
-  {
-    id: 2,
-    title: 'Test',
-    content: 'Some Random Content',
-    updatedAt: '07/11/2019'
-  }
-];
+// const notes = [
+//   {
+//     id: 1,
+//     title: 'ABC',
+//     content: 'Some Random Content',
+//     updatedAt: '08/11/2019'
+//   },
+//   {
+//     id: 2,
+//     title: 'Test',
+//     content: 'Some Random Content',
+//     updatedAt: '07/11/2019'
+//   }
+// ];
 
-export function Sidebar() {
+export function Sidebar({ notes }) {
   return (
     <div className="sidebar">
       <div className="title">

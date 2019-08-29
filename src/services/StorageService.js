@@ -1,3 +1,10 @@
+import Dexie from 'dexie';
+
+const db = new Dexie('Notes');
+
+db.version(1).stores({ notes: '++id' });
+
+export default db;
 /**
  * Wrapper around localstorage, which acts as a data store for notes
  */
@@ -11,7 +18,7 @@ const Note = {
   content: '', // string
   createdAt: '', // timestamp
   updatedAt: '', // timestamp
-  isDeleted: false // boolean
+  isArchieved: false // boolean
 };
 
 /**
