@@ -1,6 +1,7 @@
 .list-item {
   padding: 4px calc(var(--spacing-unit) * 2);
   border-bottom: 1px solid var(--background-gray);
+  cursor: pointer;
 }
 
 .list-item-selected {

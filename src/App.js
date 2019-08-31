@@ -64,7 +64,11 @@ function App() {
 
   return (
     <div>
-      <Sidebar notes={notes} selectedNote={selectedNote} />
+      <Sidebar
+        notes={notes}
+        selectedNote={selectedNote}
+        setSelectedNote={setSelectedNote}
+      />
       <ReactQuill
         className="editor"
         value={notes.length ? notes[selectedNote].content : ''}

@@ -5,7 +5,7 @@ import Typography from '../Typography/Typography';
 
 import './Sidebar.css';
 
-export function Sidebar({ notes, selectedNote }) {
+export function Sidebar({ notes, selectedNote, setSelectedNote }) {
   return (
     <div className="sidebar">
       <div className="title">
@@ -13,7 +13,11 @@ export function Sidebar({ notes, selectedNote }) {
         <button>Add New</button>
       </div>
 
-      <List notes={notes} selectedNote={selectedNote} />
+      <List
+        notes={notes}
+        selectedNote={selectedNote}
+        setSelectedNote={setSelectedNote}
+      />
 
       <div className="sidebar-footer">
         <div className="sidebar-footer content">

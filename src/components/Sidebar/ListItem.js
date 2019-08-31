@@ -12,11 +12,13 @@ export function ListItem({
   id,
   content = 'Some random content for the notes.',
   updatedAt = new Date(),
-  isSelected
+  isSelected,
+  onSelect
 }) {
   return (
     <section
       className={classNames('list-item', { 'list-item-selected': isSelected })}
+      onClick={onSelect}
     >
       <Typography variant="callout" className="bold">
         {title}
