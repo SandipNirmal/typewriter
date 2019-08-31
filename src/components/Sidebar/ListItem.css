@@ -1,4 +1,8 @@
 .list-item {
-  padding: 4px var(--spacing-unit);
+  padding: 4px calc(var(--spacing-unit) * 2);
   border-bottom: 1px solid var(--background-gray);
+}
+
+.list-item-selected {
+  background-color: var(--background-gray);
 }

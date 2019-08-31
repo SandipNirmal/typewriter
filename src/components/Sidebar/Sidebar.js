@@ -5,22 +5,7 @@ import Typography from '../Typography/Typography';
 
 import './Sidebar.css';
 
-// const notes = [
-//   {
-//     id: 1,
-//     title: 'ABC',
-//     content: 'Some Random Content',
-//     updatedAt: '08/11/2019'
-//   },
-//   {
-//     id: 2,
-//     title: 'Test',
-//     content: 'Some Random Content',
-//     updatedAt: '07/11/2019'
-//   }
-// ];
-
-export function Sidebar({ notes }) {
+export function Sidebar({ notes, selectedNote }) {
   return (
     <div className="sidebar">
       <div className="title">
@@ -28,7 +13,7 @@ export function Sidebar({ notes }) {
         <button>Add New</button>
       </div>
 
-      <List notes={notes} />
+      <List notes={notes} selectedNote={selectedNote} />
 
       <div className="sidebar-footer">
         <div className="sidebar-footer content">

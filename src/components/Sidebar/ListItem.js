@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import Typography from '../Typography/Typography';
 import Dot from './../Separator/Dot';
@@ -10,10 +11,13 @@ export function ListItem({
   title = 'Test Title',
   id,
   content = 'Some random content for the notes.',
-  updatedAt = new Date()
+  updatedAt = new Date(),
+  isSelected
 }) {
   return (
-    <section className="list-item">
+    <section
+      className={classNames('list-item', { 'list-item-selected': isSelected })}
+    >
       <Typography variant="callout" className="bold">
         {title}
       </Typography>

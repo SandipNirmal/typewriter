@@ -9,6 +9,7 @@ import 'react-quill/dist/quill.snow.css';
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(0);
 
   useEffect(() => {
     db.table('notes')
@@ -63,8 +64,11 @@ function App() {
 
   return (
     <div>
-      <Sidebar notes={notes} />
-      <ReactQuill className="editor" />
+      <Sidebar notes={notes} selectedNote={selectedNote} />
+      <ReactQuill
+        className="editor"
+        value={notes.length ? notes[selectedNote].content : ''}
+      />
     </div>
   );
 }

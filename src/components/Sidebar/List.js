@@ -4,11 +4,11 @@ import ListItem from './ListItem';
 
 import './List.css';
 
-export function NoteList({ notes }) {
+export function NoteList({ notes, selectedNote }) {
   return (
     <div className="list">
-      {notes.map(({ id, ...note }) => (
-        <ListItem key={id} {...note} />
+      {notes.map(({ id, ...note }, index) => (
+        <ListItem key={id} {...note} isSelected={index === selectedNote} />
       ))}
     </div>
   );
