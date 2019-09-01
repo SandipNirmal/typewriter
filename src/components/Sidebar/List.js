@@ -7,13 +7,13 @@ import './List.css';
 export function NoteList({ notes, selectedNote, setSelectedNote }) {
   return (
     <div className="list">
-      {notes.map(({ id, ...note }, index) => (
+      {notes.map(({ id, ...note }) => (
         <ListItem
           key={id}
           {...note}
-          isSelected={index === selectedNote}
+          isSelected={id === selectedNote}
           onSelect={() => {
-            setSelectedNote(index);
+            setSelectedNote(id);
           }}
         />
       ))}

@@ -16,6 +16,7 @@ function App() {
       .toArray()
       .then(notes => {
         setNotes(notes);
+        notes.length && setSelectedNote(notes[0].id);
       });
   }, []);
 
