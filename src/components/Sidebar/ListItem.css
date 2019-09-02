@@ -2,8 +2,19 @@
   padding: 4px calc(var(--spacing-unit) * 2);
   border-bottom: 1px solid var(--background-gray);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.list-item-content {
+  flex: 4;
 }
 
 .list-item-selected {
   background-color: var(--background-gray);
+}
+
+.delete-item {
+  height: 24px;
+  text-align: center;
 }

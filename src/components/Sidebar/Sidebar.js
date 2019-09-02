@@ -5,7 +5,12 @@ import Typography from '../Typography/Typography';
 
 import './Sidebar.css';
 
-export function Sidebar({ notes, selectedNote, setSelectedNote }) {
+export function Sidebar({
+  notes,
+  selectedNote,
+  setSelectedNote,
+  handleDeleteNote
+}) {
   return (
     <div className="sidebar">
       <div className="title">
@@ -17,6 +22,7 @@ export function Sidebar({ notes, selectedNote, setSelectedNote }) {
         notes={notes}
         selectedNote={selectedNote}
         setSelectedNote={setSelectedNote}
+        handleDeleteNote={handleDeleteNote}
       />
 
       <div className="sidebar-footer">

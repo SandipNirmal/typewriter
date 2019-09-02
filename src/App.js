@@ -60,6 +60,7 @@ function App() {
       .then(() => {
         const remainingNotes = notes.filter(note => note.id !== id);
         setNotes(remainingNotes);
+        remainingNotes.length && setSelectedNote(remainingNotes[0].id);
       });
   };
 
@@ -69,10 +70,13 @@ function App() {
         notes={notes}
         selectedNote={selectedNote}
         setSelectedNote={setSelectedNote}
+        handleDeleteNote={handleDeleteNote}
       />
       <ReactQuill
         className="editor"
-        value={notes.length ? notes[selectedNote].content : ''}
+        value={
+          notes.length ? notes[selectedNote] && notes[selectedNote].content : ''
+        }
       />
     </div>
   );

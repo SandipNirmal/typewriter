@@ -13,20 +13,26 @@ export function ListItem({
   content = 'Some random content for the notes.',
   updatedAt = new Date(),
   isSelected,
-  onSelect
+  onSelect,
+  onDelete
 }) {
   return (
     <section
       className={classNames('list-item', { 'list-item-selected': isSelected })}
-      onClick={onSelect}
     >
-      <Typography variant="callout" className="bold">
-        {title}
-      </Typography>
-      <Typography variant="subhead">
-        {getDate(updatedAt)} <Dot />
-        <span className="light"> {`${content.substr(0, 20)}...`}</span>
-      </Typography>
+      <div className="list-item-content" onClick={onSelect}>
+        <Typography variant="callout" className="bold">
+          {title}
+        </Typography>
+        <Typography variant="subhead">
+          {getDate(updatedAt)} <Dot />
+          <span className="light"> {`${content.substr(0, 20)}...`}</span>
+        </Typography>
+      </div>
+
+      <button className="delete-item" onClick={onDelete}>
+        X
+      </button>
     </section>
   );
 }
