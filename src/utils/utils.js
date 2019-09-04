@@ -2,7 +2,7 @@ import {
   DAY_IN_MILLIS,
   DAYS_IN_WEEK,
   NO_OF_DAYS_IN_WEEK
-} from "./../constants";
+} from './../constants';
 
 /**
  * Processes passes date value and return readable value from it.
@@ -22,4 +22,24 @@ export const getDate = date => {
   } else {
     return DAYS_IN_WEEK[dateValue.getDay()];
   }
+};
+
+/**
+ * Sorts the notes by updation date
+ */
+export const sortByDateCreated = (a, b) => a.updatedAt - b.updatedAt;
+
+/**
+ * Format the notes data as per our requirement
+ *
+ * @param {array} notes
+ * @returns {array}
+ */
+export const formatNotes = notes => {
+  return notes.sort(sortByDateCreated).map(note => {
+    return {
+      ...note,
+      updatedAt: getDate(note.updatedAt)
+    };
+  });
 };

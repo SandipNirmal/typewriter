@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { FaTrash } from 'react-icons/fa';
 
 import Typography from '../Typography/Typography';
 import Dot from './../Separator/Dot';
@@ -30,9 +31,9 @@ export function ListItem({
         </Typography>
       </div>
 
-      <button className="delete-item" onClick={onDelete}>
-        X
-      </button>
+      <span className="delete-item" onClick={onDelete}>
+        <FaTrash />
+      </span>
     </section>
   );
 }

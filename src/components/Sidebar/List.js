@@ -12,13 +12,13 @@ export function NoteList({
 }) {
   return (
     <div className="list">
-      {notes.map(({ id, ...note }) => (
+      {notes.map(({ id, ...note }, index) => (
         <ListItem
           key={id}
           {...note}
-          isSelected={id === selectedNote}
+          isSelected={index === selectedNote}
           onSelect={() => {
-            setSelectedNote(id);
+            setSelectedNote(index);
           }}
           onDelete={() => {
             handleDeleteNote(id);

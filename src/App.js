@@ -4,6 +4,8 @@ import ReactQuill from 'react-quill';
 import db from './services/StorageService';
 import { Sidebar } from './components';
 
+import { sortByDateCreated } from './utils';
+
 import './App.css';
 import 'react-quill/dist/quill.snow.css';
 
@@ -15,8 +17,9 @@ function App() {
     db.table('notes')
       .toArray()
       .then(notes => {
-        setNotes(notes);
-        notes.length && setSelectedNote(notes[0].id);
+        setNotes(notes.sort(sortByDateCreated));
+        // Change Selection logic to id instead of index
+        notes.length && setSelectedNote(0);
       });
   }, []);
 
@@ -33,7 +36,7 @@ function App() {
       .add(note)
       .then(id => {
         const newNotes = [...notes, Object.assign({}, note, { id })];
-        setNotes(newNotes);
+        setNotes(newNotes.sort(sortByDateCreated));
       });
   };
 
@@ -50,7 +53,7 @@ function App() {
             updatedAt: new Date()
           })
         ];
-        setNotes(newNotes);
+        setNotes(newNotes.sort(sortByDateCreated));
       });
   };
 
@@ -59,8 +62,8 @@ function App() {
       .delete(id)
       .then(() => {
         const remainingNotes = notes.filter(note => note.id !== id);
-        setNotes(remainingNotes);
-        remainingNotes.length && setSelectedNote(remainingNotes[0].id);
+        setNotes(remainingNotes.sort(sortByDateCreated));
+        remainingNotes.length && setSelectedNote(0);
       });
   };
 
