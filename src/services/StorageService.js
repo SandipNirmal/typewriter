@@ -12,14 +12,14 @@ export default db;
 /**
  * Note Object Shape
  */
-const Note = {
-  id: '', // string
-  title: '', // string
-  content: '', // string
-  createdAt: '', // timestamp
-  updatedAt: '', // timestamp
-  isArchieved: false // boolean
-};
+// const Note = {
+//   id: '', // string
+//   title: '', // string
+//   content: '', // string
+//   createdAt: '', // timestamp
+//   updatedAt: '', // timestamp
+//   isArchieved: false // boolean
+// };
 
 /**
  * Stores a note in notes dataset
