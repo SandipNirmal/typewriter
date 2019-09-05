@@ -4,10 +4,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-}
-
-.list-item-content {
-  flex: 4;
+  justify-content: space-between;
 }
 
 .list-item-selected {

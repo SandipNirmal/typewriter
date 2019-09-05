@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaPlusCircle } from 'react-icons/fa';
 
 import List from './List';
 import Typography from '../Typography/Typography';
@@ -9,13 +10,16 @@ export function Sidebar({
   notes,
   selectedNote,
   setSelectedNote,
-  handleDeleteNote
+  handleDeleteNote,
+  handleAddNote
 }) {
   return (
     <div className="sidebar">
       <div className="title">
         <Typography variant="title3">Type Writer</Typography>
-        <button>Add New</button>
+        <span className="icon" onClick={handleAddNote} title="Add New Note">
+          <FaPlusCircle />
+        </span>
       </div>
 
       <List

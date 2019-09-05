@@ -31,7 +31,7 @@ export function ListItem({
         </Typography>
       </div>
 
-      <span className="delete-item" onClick={onDelete}>
+      <span className="icon delete-item" onClick={onDelete}>
         <FaTrash />
       </span>
     </section>

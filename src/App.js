@@ -18,12 +18,12 @@ function App() {
       .toArray()
       .then(notes => {
         setNotes(notes.sort(sortByDateCreated));
-        // Change Selection logic to id instead of index
+        // TODO - Change Selection logic to id instead of index
         notes.length && setSelectedNote(0);
       });
   }, []);
 
-  const handleAddNote = ({ title, content }) => {
+  const handleAddNote = ({ title = 'test', content = 'some test content' }) => {
     const note = {
       title,
       content,
@@ -35,12 +35,14 @@ function App() {
     db.table('notes')
       .add(note)
       .then(id => {
-        const newNotes = [...notes, Object.assign({}, note, { id })];
-        setNotes(newNotes.sort(sortByDateCreated));
+        setNotes(
+          [...notes, Object.assign({}, note, { id })].sort(sortByDateCreated)
+        );
       });
   };
 
   const handleUpdateNote = (id, title, content) => {
+    // TODO - If content is blank delete note (archieve)
     db.table('notes')
       .update(id, { title, content, updatedAt: new Date() })
       .then(() => {
@@ -61,8 +63,11 @@ function App() {
     db.table('notes')
       .delete(id)
       .then(() => {
-        const remainingNotes = notes.filter(note => note.id !== id);
-        setNotes(remainingNotes.sort(sortByDateCreated));
+        const remainingNotes = notes
+          .filter(note => note.id !== id)
+          .sort(sortByDateCreated);
+
+        setNotes(remainingNotes);
         remainingNotes.length && setSelectedNote(0);
       });
   };
@@ -74,12 +79,14 @@ function App() {
         selectedNote={selectedNote}
         setSelectedNote={setSelectedNote}
         handleDeleteNote={handleDeleteNote}
+        handleAddNote={handleAddNote}
       />
       <ReactQuill
         className="editor"
         value={
           notes.length ? notes[selectedNote] && notes[selectedNote].content : ''
         }
+        // onChange={handleUpdateNote}
       />
     </div>
   );

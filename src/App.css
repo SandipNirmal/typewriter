@@ -96,3 +96,7 @@ button {
   right: 0;
   height: calc(100vh - 40px);
 }
+
+.icon {
+  cursor: pointer;
+}

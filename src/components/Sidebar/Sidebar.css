@@ -11,8 +11,11 @@
 }
 
 .title {
-  padding: var(--spacing-unit);
+  padding: calc(var(--spacing-unit) * 2);
   /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .sidebar-footer {
