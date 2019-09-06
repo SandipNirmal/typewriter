@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import db from './services/StorageService';
 import { Sidebar } from './components';
 
-import { sortByDateCreated } from './utils';
+import { sortByDateCreated, debounce } from './utils';
 
 import './App.css';
 import 'react-quill/dist/quill.snow.css';
@@ -12,6 +12,7 @@ import 'react-quill/dist/quill.snow.css';
 function App() {
   const [notes, setNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(0);
+  const [selectedNoteId, setSelectedNoteId] = useState(0);
 
   useEffect(() => {
     db.table('notes')
@@ -22,6 +23,12 @@ function App() {
         notes.length && setSelectedNote(0);
       });
   }, []);
+
+  useEffect(() => {
+    const selectedItem = notes && notes[selectedNote];
+    console.log('selectedItem', selectedItem);
+    selectedItem && setSelectedNoteId(selectedItem.id);
+  }, [selectedNote, notes]);
 
   const handleAddNote = ({ title = 'test', content = 'some test content' }) => {
     const note = {
@@ -86,7 +93,18 @@ function App() {
         value={
           notes.length ? notes[selectedNote] && notes[selectedNote].content : ''
         }
-        // onChange={handleUpdateNote}
+        onChange={value => {
+          console.log('value', value);
+          debounce(
+            () =>
+              handleUpdateNote(
+                selectedNoteId,
+                value.substr(0, 20).replace('<[^>]*>', ''),
+                value
+              ),
+            5000
+          );
+        }}
       />
     </div>
   );
