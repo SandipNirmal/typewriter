@@ -42,6 +42,8 @@ function App() {
 
   const handleUpdateNote = ({ id, title, content }) => {
     // TODO - If content is blank delete note (archieve)
+    console.log('id', id);
+
     if (id) {
       db.table('notes')
         .update(id, { title, content, updatedAt: new Date() })
@@ -55,6 +57,7 @@ function App() {
               updatedAt: new Date()
             })
           ];
+          // console.log(newNotes.filter(note => note.id === id));
           setNotes(newNotes.sort(sortByDateCreated));
         });
     }
