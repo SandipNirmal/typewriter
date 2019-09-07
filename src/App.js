@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ReactQuill from 'react-quill';
 
 import db from './services/StorageService';
-import { Sidebar } from './components';
+import { Sidebar, Editor } from './components';
 
-import { sortByDateCreated, debounce } from './utils';
+import { sortByDateCreated } from './utils';
 
 import './App.css';
 import 'react-quill/dist/quill.snow.css';
@@ -12,7 +11,6 @@ import 'react-quill/dist/quill.snow.css';
 function App() {
   const [notes, setNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(0);
-  const [selectedNoteId, setSelectedNoteId] = useState(0);
 
   useEffect(() => {
     db.table('notes')
@@ -23,12 +21,6 @@ function App() {
         notes.length && setSelectedNote(0);
       });
   }, []);
-
-  useEffect(() => {
-    const selectedItem = notes && notes[selectedNote];
-    console.log('selectedItem', selectedItem);
-    selectedItem && setSelectedNoteId(selectedItem.id);
-  }, [selectedNote, notes]);
 
   const handleAddNote = ({ title = 'test', content = 'some test content' }) => {
     const note = {
@@ -48,22 +40,24 @@ function App() {
       });
   };
 
-  const handleUpdateNote = (id, title, content) => {
+  const handleUpdateNote = ({ id, title, content }) => {
     // TODO - If content is blank delete note (archieve)
-    db.table('notes')
-      .update(id, { title, content, updatedAt: new Date() })
-      .then(() => {
-        const noteToUpdate = notes.find(note => note.id === id);
-        const newNotes = [
-          ...notes.filter(note => note.id !== id),
-          Object.assign({}, noteToUpdate, {
-            title,
-            content,
-            updatedAt: new Date()
-          })
-        ];
-        setNotes(newNotes.sort(sortByDateCreated));
-      });
+    if (id) {
+      db.table('notes')
+        .update(id, { title, content, updatedAt: new Date() })
+        .then(() => {
+          const noteToUpdate = notes.find(note => note.id === id);
+          const newNotes = [
+            ...notes.filter(note => note.id !== id),
+            Object.assign({}, noteToUpdate, {
+              title,
+              content,
+              updatedAt: new Date()
+            })
+          ];
+          setNotes(newNotes.sort(sortByDateCreated));
+        });
+    }
   };
 
   const handleDeleteNote = id => {
@@ -88,23 +82,9 @@ function App() {
         handleDeleteNote={handleDeleteNote}
         handleAddNote={handleAddNote}
       />
-      <ReactQuill
-        className="editor"
-        value={
-          notes.length ? notes[selectedNote] && notes[selectedNote].content : ''
-        }
-        onChange={value => {
-          console.log('value', value);
-          debounce(
-            () =>
-              handleUpdateNote(
-                selectedNoteId,
-                value.substr(0, 20).replace('<[^>]*>', ''),
-                value
-              ),
-            5000
-          );
-        }}
+      <Editor
+        selectedNote={notes[selectedNote]}
+        handleNoteUpdate={handleUpdateNote}
       />
     </div>
   );

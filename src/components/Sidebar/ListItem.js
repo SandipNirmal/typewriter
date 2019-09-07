@@ -4,7 +4,7 @@ import { FaTrash } from 'react-icons/fa';
 
 import Typography from '../Typography/Typography';
 import Dot from './../Separator/Dot';
-import { getDate } from '../../utils';
+import { getDate, removeHTMLTags } from '../../utils';
 
 import './ListItem.css';
 
@@ -23,11 +23,13 @@ export function ListItem({
     >
       <div className="list-item-content" onClick={onSelect}>
         <Typography variant="callout" className="bold">
-          {title}
+          {removeHTMLTags(title)}
         </Typography>
         <Typography variant="subhead">
           {getDate(updatedAt)} <Dot />
-          <span className="light"> {`${content.substr(0, 20)}...`}</span>
+          <span className="light">
+            {`${removeHTMLTags(content).substr(0, 20)}...`}
+          </span>
         </Typography>
       </div>
 

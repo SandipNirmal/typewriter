@@ -54,18 +54,21 @@ export const sortByDateCreated = (a, b) => b.updatedAt - a.updatedAt;
  * N milliseconds. If `immediate` is passed, trigger the function on the
  * leading edge, instead of the trailing. (Takem from underscore.js)
  */
-export function debounce(func, wait, immediate) {
-  var timeout;
+export function debounce(a, b, c) {
+  var d, e;
   return function() {
-    const context = this,
-      args = arguments;
-    const later = () => {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+    function h() {
+      d = null;
+      c || (e = a.apply(f, g));
+    }
+    var f = this,
+      g = arguments;
+    return (
+      clearTimeout(d), (d = setTimeout(h, b)), c && !d && (e = a.apply(f, g)), e
+    );
   };
 }
+
+export const removeHTMLTags = str => {
+  return str.replace(/<[^>]*>?/gm, '');
+};
