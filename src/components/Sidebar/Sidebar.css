@@ -18,6 +18,11 @@
   justify-content: space-between;
 }
 
+.title-logo {
+  flex: 1;
+  text-align: center;
+}
+
 .sidebar-footer {
   position: absolute;
   bottom: 0;

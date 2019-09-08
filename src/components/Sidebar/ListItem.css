@@ -11,6 +11,10 @@
   background-color: var(--background-gray);
 }
 
+.list-item-time {
+  padding-right: var(--spacing-unit);
+}
+
 .delete-item {
   height: 24px;
   text-align: center;

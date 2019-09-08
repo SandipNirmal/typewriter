@@ -18,7 +18,7 @@ export const formatTime = date => {
 
   return `${isPM ? hours - 12 : hours}:${
     minutes < 10 ? '0' + minutes : minutes
-  } ${isPM ? 'PM' : 'AM'}`;
+  }${isPM ? 'PM' : 'AM'}`;
 };
 
 /**

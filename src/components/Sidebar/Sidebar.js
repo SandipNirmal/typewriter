@@ -16,7 +16,9 @@ export function Sidebar({
   return (
     <div className="sidebar">
       <div className="title">
-        <Typography variant="title3">Type Writer</Typography>
+        <div className="title-logo">
+          <Typography variant="title3">Type Writer</Typography>
+        </div>
         <span className="icon" onClick={handleAddNote} title="Add New Note">
           <FaPlusCircle />
         </span>

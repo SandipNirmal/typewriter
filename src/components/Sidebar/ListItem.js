@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import { FaTrash } from 'react-icons/fa';
 
 import Typography from '../Typography/Typography';
-import Dot from './../Separator/Dot';
 import { getDate, removeHTMLTags } from '../../utils';
 
 import './ListItem.css';
@@ -25,12 +24,14 @@ export function ListItem({
         <Typography variant="callout" className="bold">
           {removeHTMLTags(title)}
         </Typography>
-        <Typography variant="subhead">
-          {getDate(updatedAt)} <Dot />
-          <span className="light">
+        <div>
+          <Typography variant="caption1" className="list-item-time bold">
+            {getDate(updatedAt)}
+          </Typography>
+          <Typography variant="caption1">
             {`${removeHTMLTags(content).substr(0, 20)}...`}
-          </span>
-        </Typography>
+          </Typography>
+        </div>
       </div>
 
       <span className="icon delete-item" onClick={onDelete}>

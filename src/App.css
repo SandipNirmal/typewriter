@@ -35,7 +35,6 @@
 
   /** Spacing Unit **/
   --spacing-unit: 8px;
-  --spacing-unit-2x: 16px;
 
   /** TODO: Use following colors for different variations **/
 
@@ -77,8 +76,12 @@ body {
   font-weight: 400;
 }
 
-.bold {
+.bolder {
   font-weight: 500;
+}
+
+.bold {
+  font-weight: 600;
 }
 
 button {
@@ -99,4 +102,10 @@ button {
 
 .icon {
   cursor: pointer;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
